@@ -4,7 +4,12 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { whyChoose } from "@/lib/content";
 import { images } from "@/lib/images";
 
-const accents = [images.medicalTech, images.dentistCare, images.digitalHealth, images.reception];
+const accents = [
+  images.promax,
+  images.dentistCare,
+  images.opgScreen,
+  images.operatoryChair,
+];
 
 export function WhyChoose() {
   return (
@@ -26,7 +31,11 @@ export function WhyChoose() {
                   src={accents[index]}
                   alt=""
                   fill
-                  className="object-cover opacity-35 transition duration-700 group-hover:scale-105 group-hover:opacity-45"
+                  className={`transition duration-700 group-hover:scale-105 ${
+                    accents[index] === images.promax
+                      ? "object-contain bg-white p-10 opacity-70 group-hover:opacity-85"
+                      : "object-cover opacity-35 group-hover:opacity-45"
+                  }`}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-ink via-ink/85 to-ink/70" />

@@ -4,25 +4,36 @@ import { VolumeCompare } from "@/components/tech/VolumeCompare";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { techFeatures, volumeSizes } from "@/lib/content";
-import { images } from "@/lib/images";
+import { images, PROMAX_SIZE } from "@/lib/images";
+import { pageMetadata } from "@/lib/seo";
 import { buildWhatsAppUrl } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Our Imaging Technology",
+export const metadata: Metadata = pageMetadata({
+  title: "Planmeca ProMax 3D Classic Technology",
   description:
-    "Explore the Planmeca ProMax 3D Classic at RadioImages — extended volume CBCT, Ultra Low Dose, CALM, endodontic mode and Romexis software.",
-};
+    "Explore the Planmeca ProMax 3D Classic at RadioImages — 3D CBCT, OPG, CEPH, Ultra Low Dose and CALM in DHA Lahore.",
+  path: "/technology",
+  keywords: ["Planmeca ProMax 3D Classic", "Ultra Low Dose CBCT", "Planmeca CALM Lahore"],
+});
 
 export default function TechnologyPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Technology", path: "/technology" },
+        ]}
+      />
       <PageHero
         eyebrow="Planmeca ProMax 3D Classic"
-        title="Imaging technology patients can understand"
+        title="3D CBCT, OPG and CEPH on one dental platform"
         description="Every feature explained in plain language — what it is, and why it matters for your diagnosis or treatment plan."
-        image={images.techScreen}
-        imageAlt="Digital medical imaging technology"
+        image={images.opgPatient}
+        imageAlt="Dental panoramic imaging environment"
+        priority
       >
         <ButtonLink href={buildWhatsAppUrl()} variant="whatsapp" external>
           Book a scan on WhatsApp
@@ -33,20 +44,21 @@ export default function TechnologyPage() {
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <div className="grid grid-cols-2 gap-3">
-              <div className="relative col-span-2 overflow-hidden rounded-[1.75rem] bg-ink">
+              <div className="relative col-span-2 overflow-hidden rounded-[1.75rem] bg-white ring-1 ring-ink/10">
                 <Image
                   src={images.promax}
                   alt="Planmeca ProMax 3D Classic"
-                  width={1200}
-                  height={900}
-                  className="h-72 w-full object-cover sm:h-80"
-                  priority
+                  width={PROMAX_SIZE.width}
+                  height={PROMAX_SIZE.height}
+                  className="h-72 w-full object-contain p-6 sm:h-80"
+                  sizes="(max-width: 1024px) 100vw, 560px"
+                  quality={80}
                 />
               </div>
               <div className="relative overflow-hidden rounded-[1.25rem]">
                 <Image
-                  src={images.cbctConcept}
-                  alt="Advanced CBCT imaging concept"
+                  src={images.opgScreen}
+                  alt="OPG panoramic dental X-ray"
                   width={600}
                   height={400}
                   className="h-40 w-full object-cover"
@@ -54,8 +66,8 @@ export default function TechnologyPage() {
               </div>
               <div className="relative overflow-hidden rounded-[1.25rem]">
                 <Image
-                  src={images.digitalHealth}
-                  alt="Digital health diagnostics"
+                  src={images.dentalXrayMonitor}
+                  alt="Dental X-ray CBCT review"
                   width={600}
                   height={400}
                   className="h-40 w-full object-cover"
@@ -65,21 +77,31 @@ export default function TechnologyPage() {
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="font-display text-3xl font-semibold sm:text-4xl">
-              One platform for 3D and 2D dental radiology
+              Planmeca ProMax 3D Classic
             </h2>
             <p className="mt-4 leading-relaxed text-slate">
-              The Planmeca ProMax 3D Classic supports advanced CBCT volumes, panoramic imaging,
-              cephalometrics, 3D facial photography and model scanning — viewed and shared through
-              Planmeca Romexis software.
+              Advanced CBCT volumes, panoramic OPG imaging, cephalometric CEPH studies, 3D facial
+              photography and model scanning — viewed and shared through Planmeca Romexis software.
             </p>
-            <div className="mt-6 overflow-hidden rounded-[1.25rem] ring-1 ring-ink/10">
-              <Image
-                src={images.featuresChecklist}
-                alt="Planmeca feature checklist including Ultra Low Dose and CALM"
-                width={1000}
-                height={700}
-                className="h-auto w-full object-cover"
-              />
+            <div className="mt-6 grid grid-cols-3 gap-2">
+              {[
+                { label: "3D CBCT", src: images.promax },
+                { label: "OPG", src: images.opgPatient },
+                { label: "CEPH", src: images.cephOrtho },
+              ].map((item) => (
+                <div key={item.label} className="overflow-hidden rounded-xl bg-paper-warm ring-1 ring-ink/5">
+                  <div className="relative h-24">
+                    <Image
+                      src={item.src}
+                      alt={item.label}
+                      fill
+                      className={item.src === images.promax ? "object-contain p-1 bg-white" : "object-cover"}
+                      sizes="120px"
+                    />
+                  </div>
+                  <p className="px-2 py-2 text-center text-xs font-semibold text-ink">{item.label}</p>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -88,16 +110,6 @@ export default function TechnologyPage() {
           <Reveal>
             <VolumeCompare />
           </Reveal>
-        </div>
-
-        <div className="mt-10 overflow-hidden rounded-[1.75rem] ring-1 ring-ink/10">
-          <Image
-            src={images.extendedVolume}
-            alt="Diagram comparing Ø8 cm and Ø11 cm extended CBCT volumes"
-            width={1400}
-            height={900}
-            className="h-auto w-full object-cover"
-          />
         </div>
 
         <div className="mt-16">
@@ -125,7 +137,7 @@ export default function TechnologyPage() {
 
         <Reveal>
           <div className="mt-16 rounded-[1.75rem] bg-paper-warm p-8">
-            <h2 className="font-display text-2xl font-semibold">Available volume sizes</h2>
+            <h2 className="font-display text-2xl font-semibold">Available CBCT volume sizes</h2>
             <div className="mt-5 flex flex-wrap gap-2">
               {volumeSizes.map((size) => (
                 <span

@@ -4,24 +4,35 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { services } from "@/lib/content";
 import { images, serviceImages } from "@/lib/images";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Imaging Services",
   description:
     "3D CBCT, OPG, cephalometric imaging, endodontic scans, 3D models, facial photography and implant surgical guides in DHA Lahore.",
-};
+  path: "/services",
+  keywords: ["dental CBCT services Lahore", "OPG CEPH services DHA"],
+});
 
 export default function ServicesPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ]}
+      />
       <PageHero
         eyebrow="Services"
         title="Dental imaging services for patients and referring clinics"
         description="Each service page covers what the scan is, when it is recommended, preparation, duration and how results are delivered."
-        image={images.clinicCorridor}
-        imageAlt="Modern clinical imaging corridor"
+        image={images.opgPatient}
+        imageAlt="Dental OPG and CBCT imaging services"
+        priority
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -32,12 +43,20 @@ export default function ServicesPage() {
                 href={`/services/${service.slug}`}
                 className="group grid overflow-hidden rounded-[1.5rem] bg-white ring-1 ring-ink/5 transition hover:ring-brand/40 sm:grid-cols-[220px_1fr]"
               >
-                <div className="relative min-h-[160px]">
+                <div
+                  className={`relative min-h-[160px] ${
+                    serviceImages[service.slug] === images.promax ? "bg-white" : "bg-mist"
+                  }`}
+                >
                   <Image
                     src={serviceImages[service.slug]}
                     alt={service.title}
                     fill
-                    className="object-cover transition duration-500 group-hover:scale-105"
+                    className={`transition duration-500 group-hover:scale-105 ${
+                      serviceImages[service.slug] === images.promax
+                        ? "object-contain p-3"
+                        : "object-cover"
+                    }`}
                     sizes="220px"
                   />
                 </div>

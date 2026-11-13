@@ -4,30 +4,27 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, Navigation, ShieldCheck, Sparkles } from "lucide-react";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { images } from "@/lib/images";
+import { images, PROMAX_SIZE } from "@/lib/images";
 import { buildWhatsAppUrl, siteConfig } from "@/lib/site";
 
 export function Hero() {
   return (
     <section className="relative isolate min-h-[92vh] overflow-hidden bg-ink text-white">
       <div className="absolute inset-0">
-        <motion.div
-          className="absolute inset-0"
-          initial={{ scale: 1.08 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <div className="absolute inset-0">
           <Image
-            src={images.hero}
-            alt="Modern professional dental imaging clinic"
+            src={images.opgPatient}
+            alt="Patient positioned for dental panoramic OPG imaging at RadioImages Lahore"
             fill
             priority
+            fetchPriority="high"
+            quality={75}
             className="object-cover object-center"
             sizes="100vw"
           />
-        </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-ink/50" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/88 to-ink/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-ink/55" />
         <div className="absolute inset-0 hero-grid opacity-25" />
         <div className="absolute -left-24 top-24 h-72 w-72 rounded-full bg-brand/30 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-indigo/40 blur-3xl" />
@@ -69,8 +66,8 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.22 }}
             className="mt-6 max-w-xl text-base leading-relaxed text-white/78 sm:text-lg"
           >
-            Premium dental imaging and computer guided surgical solutions — clear for patients,
-            precise for dentists, booked in one WhatsApp tap.
+            Premium dental imaging — 3D CBCT, OPG and CEPH on the Planmeca ProMax 3D Classic.
+            Book in one WhatsApp tap.
           </motion.p>
 
           <motion.div
@@ -123,37 +120,42 @@ export function Hero() {
           <div className="relative grid gap-3 sm:grid-cols-2">
             <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15 shadow-2xl sm:row-span-2">
               <Image
-                src={images.dentalChair}
-                alt="Contemporary dental imaging chair"
-                width={800}
-                height={1100}
-                className="h-full min-h-[280px] w-full object-cover sm:min-h-[420px]"
-                priority
+                src={images.promax}
+                alt="Planmeca ProMax 3D Classic CBCT unit"
+                width={PROMAX_SIZE.width}
+                height={PROMAX_SIZE.height}
+                className="h-full min-h-[280px] w-full bg-white object-contain p-4 sm:min-h-[420px]"
+                sizes="(max-width: 768px) 100vw, 420px"
+                quality={80}
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/60 to-transparent p-4">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/70 to-transparent p-4">
                 <p className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.18em] text-brand-hot">
                   <Sparkles className="h-3.5 w-3.5" />
-                  Clinical precision
+                  3D CBCT
                 </p>
-                <p className="mt-1 font-display text-lg font-semibold">Calm, modern scan visits</p>
+                <p className="mt-1 font-display text-lg font-semibold">Planmeca ProMax 3D Classic</p>
               </div>
             </div>
             <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15">
               <Image
-                src={images.promax}
-                alt="Planmeca ProMax 3D Classic"
+                src={images.opgScreen}
+                alt="OPG panoramic dental X-ray on screen"
                 width={700}
                 height={500}
                 className="h-40 w-full object-cover sm:h-48"
+                loading="lazy"
+                quality={70}
               />
             </div>
             <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15">
               <Image
-                src={images.medicalTech}
-                alt="Digital diagnostic technology"
+                src={images.dentistXrayReview}
+                alt="Dentist reviewing dental imaging with patient"
                 width={700}
                 height={500}
                 className="h-40 w-full object-cover sm:h-48"
+                loading="lazy"
+                quality={70}
               />
             </div>
           </div>

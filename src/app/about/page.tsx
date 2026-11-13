@@ -3,24 +3,34 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
-import { images } from "@/lib/images";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { images, PROMAX_SIZE } from "@/lib/images";
+import { pageMetadata } from "@/lib/seo";
 import { buildWhatsAppUrl } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About Us",
   description:
-    "RadioImages is a dental imaging center in DHA Lahore focused on diagnostic accuracy, patient comfort and Planmeca 3D technology.",
-};
+    "RadioImages is a dental imaging center in DHA Lahore focused on 3D CBCT, OPG, CEPH and Planmeca technology.",
+  path: "/about",
+  keywords: ["about RadioImages", "dental radiology Lahore"],
+});
 
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ]}
+      />
       <PageHero
         eyebrow="About RadioImages"
         title="Specialist dental imaging with a calm, clinical standard"
         description="We help patients understand their scans and give referring dentists clear, usable imaging — from 3D CBCT to OPG, CEPH and guided surgery support."
         image={images.dentalTeam}
-        imageAlt="Professional dental clinic team environment"
+        imageAlt="Professional dental clinic team"
       >
         <ButtonLink href={buildWhatsAppUrl()} variant="whatsapp" external>
           Talk to our team
@@ -34,7 +44,7 @@ export default function AboutPage() {
               <div className="relative col-span-2 overflow-hidden rounded-[1.5rem]">
                 <Image
                   src={images.dentistCare}
-                  alt="Patient-focused dental care"
+                  alt="Dentist providing patient care"
                   width={1000}
                   height={700}
                   className="h-64 w-full object-cover sm:h-72"
@@ -42,8 +52,8 @@ export default function AboutPage() {
               </div>
               <div className="relative overflow-hidden rounded-[1.25rem]">
                 <Image
-                  src={images.smilePatient}
-                  alt="Comfortable patient experience"
+                  src={images.opgScreen}
+                  alt="Dental OPG X-ray imaging"
                   width={500}
                   height={400}
                   className="h-40 w-full object-cover"
@@ -51,11 +61,12 @@ export default function AboutPage() {
               </div>
               <div className="relative overflow-hidden rounded-[1.25rem]">
                 <Image
-                  src={images.gloveCare}
-                  alt="Clinical care standards"
-                  width={500}
-                  height={400}
-                  className="h-40 w-full object-cover"
+                  src={images.promax}
+                  alt="Planmeca ProMax 3D Classic"
+                  width={PROMAX_SIZE.width}
+                  height={PROMAX_SIZE.height}
+                  className="h-40 w-full bg-white object-contain p-2"
+                  sizes="200px"
                 />
               </div>
             </div>
@@ -68,8 +79,7 @@ export default function AboutPage() {
                 <p className="mt-4 leading-relaxed text-slate">
                   RadioImages exists to make advanced dental radiology accessible, understandable and
                   easy to reach in DHA Lahore. Patients should know what a scan involves. Dentists
-                  should receive reliable digital datasets. Everyone should find the center without
-                  friction.
+                  should receive reliable digital datasets.
                 </p>
               </article>
             </Reveal>
@@ -78,8 +88,7 @@ export default function AboutPage() {
                 <h2 className="font-display text-3xl font-semibold">Quality commitment</h2>
                 <p className="mt-4 leading-relaxed text-slate">
                   Imaging is performed on the Planmeca ProMax 3D Classic with careful positioning,
-                  dose-conscious protocols and digital delivery on USB or printed card. We focus on
-                  diagnostic accuracy and a respectful, unhurried patient experience.
+                  dose-conscious protocols and digital delivery on USB or printed card.
                 </p>
               </article>
             </Reveal>
@@ -89,25 +98,31 @@ export default function AboutPage() {
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {[
             {
-              title: "Technology-led",
-              body: "CBCT, OPG, cephalometrics, 3D face photo, model scanning and surgical guide workflows.",
-              image: images.medicalTech,
+              title: "3D CBCT technology",
+              body: "Planmeca ProMax 3D Classic for precise cone beam imaging and implant planning.",
+              image: images.promax,
             },
             {
-              title: "Patient comfort",
-              body: "Clear explanations, short visits and support for children attending orthodontic scans.",
-              image: images.orthodontics,
+              title: "OPG & CEPH",
+              body: "Panoramic and cephalometric studies for screening and orthodontic planning.",
+              image: images.orthoBraces,
             },
             {
-              title: "Professional partnership",
-              body: "Built for referring dentists and clinics who need dependable imaging and fast contact.",
-              image: images.cleanClinic,
+              title: "Dentist partnership",
+              body: "Built for referring dentists who need dependable imaging and fast contact.",
+              image: images.dentistXrayReview,
             },
           ].map((item, index) => (
             <Reveal key={item.title} delay={index * 0.06}>
               <article className="relative overflow-hidden rounded-[1.5rem] bg-ink text-white">
                 <div className="absolute inset-0">
-                  <Image src={item.image} alt="" fill className="object-cover opacity-40" sizes="33vw" />
+                  <Image
+                    src={item.image}
+                    alt=""
+                    fill
+                    className="object-cover opacity-40"
+                    sizes="33vw"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/50" />
                 </div>
                 <div className="relative p-6">

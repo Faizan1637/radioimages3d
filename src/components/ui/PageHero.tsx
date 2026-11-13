@@ -9,6 +9,7 @@ type PageHeroProps = {
   children?: ReactNode;
   image?: string;
   imageAlt?: string;
+  priority?: boolean;
 };
 
 export function PageHero({
@@ -18,12 +19,21 @@ export function PageHero({
   children,
   image,
   imageAlt = "",
+  priority = false,
 }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden bg-ink text-white">
       {image ? (
         <div className="absolute inset-0">
-          <Image src={image} alt={imageAlt} fill className="object-cover opacity-40" sizes="100vw" priority />
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill
+            className="object-cover opacity-40"
+            sizes="100vw"
+            priority={priority}
+            quality={65}
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/88 to-ink/70" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-ink/40" />
         </div>

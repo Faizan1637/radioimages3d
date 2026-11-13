@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 
-export const metadata: Metadata = {
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
   title: "Terms of Use",
   description: "Terms of use and medical information disclaimer for RadioImages.com.",
-};
+  path: "/terms",
+  noIndex: true,
+});
 
 export default function TermsPage() {
   return (

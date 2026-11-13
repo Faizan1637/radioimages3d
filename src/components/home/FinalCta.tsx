@@ -12,7 +12,7 @@ export function FinalCta() {
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-ink text-white">
           <div className="absolute inset-0">
             <Image
-              src={images.scannerRoom}
+              src={images.dentistPatient}
               alt=""
               fill
               className="object-cover opacity-35"
@@ -28,7 +28,7 @@ export function FinalCta() {
                 Ready when you are
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-                Book your scan. Walk in with confidence.
+                Book your CBCT, OPG or CEPH scan
               </h2>
               <p className="mt-4 max-w-2xl text-white/75">
                 Message us on WhatsApp, confirm your slot, visit {siteConfig.address.line1}, and

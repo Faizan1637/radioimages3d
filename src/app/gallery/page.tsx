@@ -1,22 +1,33 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
-import { galleryImages } from "@/lib/images";
+import { galleryImages, images } from "@/lib/images";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Gallery",
   description:
-    "Professional dental imaging and clinic visuals from RadioImages — technology, care environment and Planmeca equipment.",
-};
+    "3D CBCT, OPG, CEPH and Planmeca ProMax 3D Classic dental imaging visuals from RadioImages.",
+  path: "/gallery",
+});
 
 export default function GalleryPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Gallery", path: "/gallery" },
+        ]}
+      />
       <PageHero
         eyebrow="Gallery"
-        title="A visual look at modern dental imaging"
-        description="High-quality clinical and technology imagery. Exterior and team photos from the DHA center can be added after a professional shoot."
+        title="Dental imaging — CBCT, OPG, CEPH & Planmeca"
+        description="Focused dental radiology imagery only. Center exterior and team photos can replace placeholders after a professional shoot."
+        image={images.promax}
+        imageAlt="Planmeca ProMax 3D Classic"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -25,15 +36,25 @@ export default function GalleryPage() {
             <Reveal key={image.src} delay={index * 0.03} className="mb-5 break-inside-avoid">
               <figure className="group overflow-hidden rounded-[1.5rem] bg-white ring-1 ring-ink/5">
                 <div
-                  className={`relative overflow-hidden bg-mist ${
-                    index % 3 === 0 ? "aspect-[4/5]" : index % 3 === 1 ? "aspect-square" : "aspect-[4/3]"
+                  className={`relative overflow-hidden ${
+                    image.src === images.promax
+                      ? "aspect-square bg-white"
+                      : index % 3 === 0
+                        ? "aspect-[4/5] bg-mist"
+                        : index % 3 === 1
+                          ? "aspect-square bg-mist"
+                          : "aspect-[4/3] bg-mist"
                   }`}
                 >
                   <Image
                     src={image.src}
                     alt={image.alt}
                     fill
-                    className="object-cover transition duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    quality={70}
+                    className={`transition duration-700 group-hover:scale-105 ${
+                      image.src === images.promax ? "object-contain p-6" : "object-cover"
+                    }`}
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
@@ -45,10 +66,6 @@ export default function GalleryPage() {
             </Reveal>
           ))}
         </div>
-        <p className="mt-10 text-sm text-slate">
-          Stock photography is used for atmosphere. Manufacturer brochure testimonials are not
-          republished. Center-specific photography can replace placeholders anytime.
-        </p>
       </section>
     </>
   );

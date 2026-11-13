@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CheckCircle2, Clock3, MessageCircle, Navigation, Usb } from "lucide-react";
+import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { services } from "@/lib/content";
-import { serviceImages } from "@/lib/images";
+import { images, PROMAX_SIZE, serviceImages } from "@/lib/images";
+import { pageMetadata } from "@/lib/seo";
 import { bookScanMessage, buildWhatsAppUrl, siteConfig } from "@/lib/site";
 
 type PageProps = {
@@ -21,10 +23,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
   if (!service) return {};
-  return {
+  return pageMetadata({
     title: service.seoTitle,
     description: service.seoDescription,
-  };
+    path: `/services/${service.slug}`,
+    keywords: [service.shortTitle, `${service.shortTitle} Lahore`, "dental imaging DHA"],
+    image: serviceImages[service.slug],
+  });
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
@@ -32,15 +37,25 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
   const image = serviceImages[service.slug];
+  const path = `/services/${service.slug}`;
 
   return (
     <>
+      <ServiceJsonLd name={service.title} description={service.summary} path={path} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: service.shortTitle, path },
+        ]}
+      />
       <PageHero
         eyebrow="Imaging service"
         title={service.title}
         description={service.summary}
         image={image}
         imageAlt={service.title}
+        priority
       >
         <div className="flex flex-wrap gap-3">
           <ButtonLink
@@ -60,14 +75,23 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="mb-8 overflow-hidden rounded-[1.75rem]">
+          <div
+            className={`mb-8 overflow-hidden rounded-[1.75rem] ${
+              image === images.promax ? "bg-white ring-1 ring-ink/10" : ""
+            }`}
+          >
             <Image
               src={image}
               alt={service.title}
-              width={1400}
-              height={700}
-              className="h-56 w-full object-cover sm:h-72 lg:h-80"
-              priority
+              width={image === images.promax ? PROMAX_SIZE.width : 1400}
+              height={image === images.promax ? PROMAX_SIZE.height : 700}
+              className={
+                image === images.promax
+                  ? "mx-auto h-56 w-auto object-contain p-6 sm:h-72 lg:h-80"
+                  : "h-56 w-full object-cover sm:h-72 lg:h-80"
+              }
+              sizes="(max-width: 1024px) 100vw, 900px"
+              quality={75}
             />
           </div>
         </Reveal>

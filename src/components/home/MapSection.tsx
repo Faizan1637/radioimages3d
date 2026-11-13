@@ -1,5 +1,6 @@
 import { MapPin, Navigation } from "lucide-react";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { LazyMap } from "@/components/ui/LazyMap";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/lib/site";
@@ -35,14 +36,7 @@ export function MapSection() {
 
         <Reveal delay={0.1}>
           <div className="overflow-hidden rounded-[1.75rem] bg-mist shadow-[0_30px_80px_-45px_rgba(0,0,0,0.5)] ring-1 ring-ink/10">
-            <iframe
-              title="RadioImages location map"
-              src={siteConfig.maps.embedUrl}
-              className="h-[360px] w-full border-0 sm:h-[420px]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+            <LazyMap />
           </div>
         </Reveal>
       </div>

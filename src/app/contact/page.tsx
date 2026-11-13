@@ -1,27 +1,39 @@
 import type { Metadata } from "next";
 import { Clock3, MapPin, MessageCircle, Navigation, Phone } from "lucide-react";
 import { OpenNow } from "@/components/layout/OpenNow";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { LazyMap } from "@/components/ui/LazyMap";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { images } from "@/lib/images";
+import { pageMetadata } from "@/lib/seo";
 import { buildWhatsAppUrl, siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Location & Contact",
+export const metadata: Metadata = pageMetadata({
+  title: "Location & Contact | DHA Lahore",
   description:
     "Find RadioImages at 73/6 K Block, Phase 1, Ghazi Road, DHA Lahore. Book on WhatsApp, get directions, call 0325-9888999.",
-};
+  path: "/contact",
+  keywords: ["RadioImages address", "dental imaging DHA directions", "book CBCT WhatsApp Lahore"],
+});
 
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
+      />
       <PageHero
         eyebrow="Contact & WhatsApp booking"
         title="Book by message. Find us without calling for directions."
         description="Every appointment request goes to our team on WhatsApp. We confirm your slot, share the address and help you arrive prepared."
-        image={images.reception}
-        imageAlt="Modern dental clinic reception"
+        image={images.hero}
+        imageAlt="Modern dental imaging clinic"
+        priority
       >
         <div className="flex flex-wrap gap-3">
           <ButtonLink href={buildWhatsAppUrl()} variant="whatsapp" external>
@@ -90,14 +102,7 @@ export default function ContactPage() {
 
           <Reveal delay={0.05}>
             <div className="overflow-hidden rounded-[1.75rem] ring-1 ring-ink/10">
-              <iframe
-                title="RadioImages Google Map"
-                src={siteConfig.maps.embedUrl}
-                className="h-[520px] w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+              <LazyMap heightClass="h-[520px]" />
             </div>
           </Reveal>
         </div>
