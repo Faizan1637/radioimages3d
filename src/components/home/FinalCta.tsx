@@ -1,16 +1,28 @@
+import Image from "next/image";
 import { MessageCircle, Navigation, Usb } from "lucide-react";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Reveal } from "@/components/ui/Reveal";
+import { images } from "@/lib/images";
 import { buildWhatsAppUrl, siteConfig } from "@/lib/site";
 
 export function FinalCta() {
   return (
     <section className="px-4 pb-20 sm:px-6 lg:px-8">
       <Reveal>
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-ink px-6 py-14 text-white sm:px-10">
-          <div className="pointer-events-none absolute inset-0 hero-grid opacity-25" />
-          <div className="pointer-events-none absolute -right-10 top-0 h-56 w-56 rounded-full bg-brand/30 blur-3xl" />
-          <div className="relative grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-ink text-white">
+          <div className="absolute inset-0">
+            <Image
+              src={images.scannerRoom}
+              alt=""
+              fill
+              className="object-cover opacity-35"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/75" />
+            <div className="absolute inset-0 hero-grid opacity-20" />
+          </div>
+
+          <div className="relative grid gap-8 px-6 py-14 sm:px-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-hot">
                 Ready when you are
@@ -18,7 +30,7 @@ export function FinalCta() {
               <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
                 Book your scan. Walk in with confidence.
               </h2>
-              <p className="mt-4 max-w-2xl text-white/70">
+              <p className="mt-4 max-w-2xl text-white/75">
                 Message us on WhatsApp, confirm your slot, visit {siteConfig.address.line1}, and
                 leave with images on USB or printed card for your dentist.
               </p>
@@ -33,7 +45,7 @@ export function FinalCta() {
                 </ButtonLink>
               </div>
             </div>
-            <div className="rounded-[1.5rem] bg-white/5 p-6 ring-1 ring-white/10">
+            <div className="rounded-[1.5rem] bg-white/8 p-6 ring-1 ring-white/15 backdrop-blur">
               <div className="flex items-center gap-3">
                 <span className="grid h-11 w-11 place-items-center rounded-2xl bg-brand text-ink">
                   <Usb className="h-5 w-5" />

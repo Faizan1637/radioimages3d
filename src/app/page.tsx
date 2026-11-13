@@ -3,6 +3,7 @@ import { FeaturedTech } from "@/components/home/FeaturedTech";
 import { FinalCta } from "@/components/home/FinalCta";
 import { Hero } from "@/components/home/Hero";
 import { HowItWorks } from "@/components/home/HowItWorks";
+import { ImageStrip } from "@/components/home/ImageStrip";
 import { MapSection } from "@/components/home/MapSection";
 import { QuickFacts } from "@/components/home/QuickFacts";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
@@ -13,6 +14,7 @@ export default function HomePage() {
     <>
       <Hero />
       <QuickFacts />
+      <ImageStrip />
       <FeaturedTech />
       <ServicesOverview />
       <WhyChoose />

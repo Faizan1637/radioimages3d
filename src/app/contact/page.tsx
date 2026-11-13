@@ -4,6 +4,7 @@ import { OpenNow } from "@/components/layout/OpenNow";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
+import { images } from "@/lib/images";
 import { buildWhatsAppUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -19,6 +20,8 @@ export default function ContactPage() {
         eyebrow="Contact & WhatsApp booking"
         title="Book by message. Find us without calling for directions."
         description="Every appointment request goes to our team on WhatsApp. We confirm your slot, share the address and help you arrive prepared."
+        image={images.reception}
+        imageAlt="Modern dental clinic reception"
       >
         <div className="flex flex-wrap gap-3">
           <ButtonLink href={buildWhatsAppUrl()} variant="whatsapp" external>

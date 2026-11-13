@@ -5,6 +5,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { techFeatures, volumeSizes } from "@/lib/content";
+import { images } from "@/lib/images";
 import { buildWhatsAppUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -20,6 +21,8 @@ export default function TechnologyPage() {
         eyebrow="Planmeca ProMax 3D Classic"
         title="Imaging technology patients can understand"
         description="Every feature explained in plain language — what it is, and why it matters for your diagnosis or treatment plan."
+        image={images.techScreen}
+        imageAlt="Digital medical imaging technology"
       >
         <ButtonLink href={buildWhatsAppUrl()} variant="whatsapp" external>
           Book a scan on WhatsApp
@@ -29,29 +32,49 @@ export default function TechnologyPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <div className="overflow-hidden rounded-[1.75rem] bg-ink">
-              <Image
-                src="/images/equipment/promax-classic.jpg"
-                alt="Planmeca ProMax 3D Classic"
-                width={1200}
-                height={900}
-                className="h-auto w-full object-cover"
-                priority
-              />
+            <div className="grid grid-cols-2 gap-3">
+              <div className="relative col-span-2 overflow-hidden rounded-[1.75rem] bg-ink">
+                <Image
+                  src={images.promax}
+                  alt="Planmeca ProMax 3D Classic"
+                  width={1200}
+                  height={900}
+                  className="h-72 w-full object-cover sm:h-80"
+                  priority
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-[1.25rem]">
+                <Image
+                  src={images.cbctConcept}
+                  alt="Advanced CBCT imaging concept"
+                  width={600}
+                  height={400}
+                  className="h-40 w-full object-cover"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-[1.25rem]">
+                <Image
+                  src={images.digitalHealth}
+                  alt="Digital health diagnostics"
+                  width={600}
+                  height={400}
+                  className="h-40 w-full object-cover"
+                />
+              </div>
             </div>
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="font-display text-3xl font-semibold sm:text-4xl">
               One platform for 3D and 2D dental radiology
             </h2>
-            <p className="mt-4 text-slate leading-relaxed">
+            <p className="mt-4 leading-relaxed text-slate">
               The Planmeca ProMax 3D Classic supports advanced CBCT volumes, panoramic imaging,
               cephalometrics, 3D facial photography and model scanning — viewed and shared through
               Planmeca Romexis software.
             </p>
             <div className="mt-6 overflow-hidden rounded-[1.25rem] ring-1 ring-ink/10">
               <Image
-                src="/images/equipment/features-checklist.jpg"
+                src={images.featuresChecklist}
                 alt="Planmeca feature checklist including Ultra Low Dose and CALM"
                 width={1000}
                 height={700}
@@ -69,7 +92,7 @@ export default function TechnologyPage() {
 
         <div className="mt-10 overflow-hidden rounded-[1.75rem] ring-1 ring-ink/10">
           <Image
-            src="/images/equipment/extended-volume.jpg"
+            src={images.extendedVolume}
             alt="Diagram comparing Ø8 cm and Ø11 cm extended CBCT volumes"
             width={1400}
             height={900}
@@ -113,9 +136,6 @@ export default function TechnologyPage() {
                 </span>
               ))}
             </div>
-            <p className="mt-5 text-sm text-slate">
-              SureSmile certification can be listed publicly once confirmed by the clinic.
-            </p>
           </div>
         </Reveal>
       </section>

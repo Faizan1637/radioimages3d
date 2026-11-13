@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CheckCircle2, Clock3, MessageCircle, Navigation, Usb } from "lucide-react";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { services } from "@/lib/content";
+import { serviceImages } from "@/lib/images";
 import { bookScanMessage, buildWhatsAppUrl, siteConfig } from "@/lib/site";
 
 type PageProps = {
@@ -29,10 +31,17 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
+  const image = serviceImages[service.slug];
 
   return (
     <>
-      <PageHero eyebrow="Imaging service" title={service.title} description={service.summary}>
+      <PageHero
+        eyebrow="Imaging service"
+        title={service.title}
+        description={service.summary}
+        image={image}
+        imageAlt={service.title}
+      >
         <div className="flex flex-wrap gap-3">
           <ButtonLink
             href={buildWhatsAppUrl(bookScanMessage(service.shortTitle))}
@@ -50,6 +59,19 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </PageHero>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="mb-8 overflow-hidden rounded-[1.75rem]">
+            <Image
+              src={image}
+              alt={service.title}
+              width={1400}
+              height={700}
+              className="h-56 w-full object-cover sm:h-72 lg:h-80"
+              priority
+            />
+          </div>
+        </Reveal>
+
         <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="space-y-6">
             <Reveal>

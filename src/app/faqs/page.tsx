@@ -3,6 +3,7 @@ import { FaqJsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { faqs } from "@/lib/content";
+import { images } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "FAQs",
@@ -18,6 +19,8 @@ export default function FaqsPage() {
         eyebrow="FAQs"
         title="Answers for patients and referring clinics"
         description="Clear information on booking, safety, scan types and how results are delivered."
+        image={images.xrayLight}
+        imageAlt="Diagnostic imaging environment"
       />
 
       <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Baby, Shield, Usb, ClipboardList } from "lucide-react";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { patientPrep } from "@/lib/content";
+import { images } from "@/lib/images";
 import { buildWhatsAppUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -19,6 +21,8 @@ export default function PatientInfoPage() {
         eyebrow="Patient information"
         title="Know what to expect before your scan"
         description="Simple guidance for a smooth visit — from preparation to how you take images home for your dentist."
+        image={images.smilePatient}
+        imageAlt="Comfortable dental patient visit"
       >
         <ButtonLink href={buildWhatsAppUrl()} variant="whatsapp" external>
           Ask a question on WhatsApp
@@ -26,6 +30,16 @@ export default function PatientInfoPage() {
       </PageHero>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="mb-8 grid gap-3 sm:grid-cols-3">
+            {[images.dentalChair, images.dentistCare, images.orthodontics].map((src) => (
+              <div key={src} className="relative h-44 overflow-hidden rounded-[1.25rem]">
+                <Image src={src} alt="" fill className="object-cover" sizes="33vw" />
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal>
             <article className="h-full rounded-[1.5rem] bg-white p-7 ring-1 ring-ink/5">
@@ -57,16 +71,29 @@ export default function PatientInfoPage() {
         </div>
 
         <Reveal>
-          <article className="mt-6 rounded-[1.75rem] bg-ink p-8 text-white">
-            <h2 className="font-display text-2xl font-semibold">Preparation checklist</h2>
-            <ul className="mt-5 space-y-3">
-              {patientPrep.map((item) => (
-                <li key={item} className="flex gap-3 text-white/75">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+          <article className="mt-6 overflow-hidden rounded-[1.75rem] bg-ink text-white">
+            <div className="grid lg:grid-cols-2">
+              <div className="relative min-h-[220px]">
+                <Image
+                  src={images.cleanClinic}
+                  alt="Calm clinical environment"
+                  fill
+                  className="object-cover opacity-60"
+                  sizes="50vw"
+                />
+              </div>
+              <div className="p-8">
+                <h2 className="font-display text-2xl font-semibold">Preparation checklist</h2>
+                <ul className="mt-5 space-y-3">
+                  {patientPrep.map((item) => (
+                    <li key={item} className="flex gap-3 text-white/75">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </article>
         </Reveal>
 
