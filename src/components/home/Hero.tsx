@@ -39,7 +39,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full bg-white/8 px-3 py-1.5 text-xs font-medium text-white/85 ring-1 ring-white/15 backdrop-blur"
           >
             <ShieldCheck className="h-3.5 w-3.5 text-brand" />
-            DHA Lahore · Planmeca ProMax 3D Classic
+            Precision 3D Dental Imaging
           </motion.div>
 
           <motion.h1
