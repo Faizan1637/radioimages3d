@@ -29,8 +29,8 @@ export default function AboutPage() {
         eyebrow="About RadioImages"
         title="Specialist dental imaging with a calm, clinical standard"
         description="We help patients understand their scans and give referring dentists clear, usable imaging — from 3D CBCT to OPG, CEPH and guided surgery support."
-        image={images.dentalTeam}
-        imageAlt="Professional dental clinic team"
+        image={images.reception}
+        imageAlt="RadioImages 3D reception desk"
       >
         <ButtonLink href={buildWhatsAppUrl()} variant="whatsapp" external>
           Talk to our team
@@ -43,8 +43,8 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-3">
               <div className="relative col-span-2 overflow-hidden rounded-[1.5rem]">
                 <Image
-                  src={images.dentistCare}
-                  alt="Dentist providing patient care"
+                  src={images.reception}
+                  alt="RadioImages reception desk"
                   width={1000}
                   height={700}
                   className="h-64 w-full object-cover sm:h-72"
@@ -52,8 +52,8 @@ export default function AboutPage() {
               </div>
               <div className="relative overflow-hidden rounded-[1.25rem]">
                 <Image
-                  src={images.opgScreen}
-                  alt="Dental OPG X-ray imaging"
+                  src={images.dentistCare}
+                  alt="Dentist providing patient care"
                   width={500}
                   height={400}
                   className="h-40 w-full object-cover"
@@ -105,12 +105,12 @@ export default function AboutPage() {
             {
               title: "OPG & CEPH",
               body: "Panoramic and cephalometric studies for screening and orthodontic planning.",
-              image: images.orthoBraces,
+              image: images.ceph,
             },
             {
               title: "Dentist partnership",
               body: "Built for referring dentists who need dependable imaging and fast contact.",
-              image: images.dentistXrayReview,
+              image: images.dentistsTablet,
             },
           ].map((item, index) => (
             <Reveal key={item.title} delay={index * 0.06}>

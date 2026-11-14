@@ -13,8 +13,8 @@ export function Hero() {
       <div className="absolute inset-0">
         <div className="absolute inset-0">
           <Image
-            src={images.opgPatient}
-            alt="Patient positioned for dental panoramic OPG imaging at RadioImages Lahore"
+            src={images.reception}
+            alt="RadioImages 3D reception desk, DHA Lahore"
             fill
             priority
             fetchPriority="high"
@@ -138,22 +138,22 @@ export function Hero() {
             </div>
             <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15">
               <Image
-                src={images.opgScreen}
-                alt="OPG panoramic dental X-ray on screen"
+                src={images.opg}
+                alt="Panoramic OPG dental radiograph"
                 width={700}
                 height={500}
-                className="h-40 w-full object-cover sm:h-48"
+                className="h-40 w-full bg-black object-contain sm:h-48"
                 loading="lazy"
                 quality={70}
               />
             </div>
             <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15">
               <Image
-                src={images.dentistXrayReview}
-                alt="Dentist reviewing dental imaging with patient"
+                src={images.ceph}
+                alt="Lateral cephalometric radiograph"
                 width={700}
                 height={500}
-                className="h-40 w-full object-cover sm:h-48"
+                className="h-40 w-full bg-black object-contain sm:h-48"
                 loading="lazy"
                 quality={70}
               />

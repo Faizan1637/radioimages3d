@@ -121,32 +121,6 @@ export const services: Service[] = [
       "Cephalometric X-rays and tracing in DHA Lahore for orthodontic planning — lateral, PA and AP views on Planmeca technology.",
   },
   {
-    slug: "one-shot-ceph",
-    title: "One-Shot Cephalometric Imaging",
-    shortTitle: "One-Shot CEPH",
-    summary:
-      "Rapid cephalometric capture that reduces motion and keeps appointments short — ideal for busy orthodontic workflows and younger patients.",
-    whatItIs:
-      "One-shot cephalometric imaging acquires the full cephalometric view in a single exposure, minimizing movement artefact and chair time compared with slower scanning techniques.",
-    whenRecommended: [
-      "Orthodontic records needing fast turnaround",
-      "Patients who find longer scans difficult",
-      "High-volume clinic referral days",
-    ],
-    howItWorks:
-      "After precise head positioning, a single exposure captures the cephalometric image. Files are processed in Romexis and prepared for delivery.",
-    preparation: [
-      "Remove metal objects from the head and neck area",
-      "Inform staff of pregnancy",
-    ],
-    duration: "Often completed within a short clinic visit",
-    delivery: "USB, printed card or digital transfer to the referring clinic.",
-    typicalUses: ["Fast cephalometric capture", "Orthodontic records"],
-    seoTitle: "One-Shot Cephalometric Imaging Lahore | RadioImages",
-    seoDescription:
-      "One-shot cephalometric imaging in DHA Lahore for fast, clear orthodontic records with digital delivery.",
-  },
-  {
     slug: "endodontic-imaging",
     title: "Endodontic Imaging",
     shortTitle: "Endodontic",
@@ -286,6 +260,32 @@ export const services: Service[] = [
     seoDescription:
       "Computer guided surgical solutions and implant surgical guides in DHA Lahore, backed by Planmeca 3D CBCT.",
   },
+  {
+    slug: "one-shot-ceph",
+    title: "One-Shot Cephalometric Imaging",
+    shortTitle: "One-Shot CEPH",
+    summary:
+      "Rapid cephalometric capture that reduces motion and keeps appointments short — ideal for busy orthodontic workflows and younger patients.",
+    whatItIs:
+      "One-shot cephalometric imaging acquires the full cephalometric view in a single exposure, minimizing movement artefact and chair time compared with slower scanning techniques.",
+    whenRecommended: [
+      "Orthodontic records needing fast turnaround",
+      "Patients who find longer scans difficult",
+      "High-volume clinic referral days",
+    ],
+    howItWorks:
+      "After precise head positioning, a single exposure captures the cephalometric image. Files are processed in Romexis and prepared for delivery.",
+    preparation: [
+      "Remove metal objects from the head and neck area",
+      "Inform staff of pregnancy",
+    ],
+    duration: "Often completed within a short clinic visit",
+    delivery: "USB, printed card or digital transfer to the referring clinic.",
+    typicalUses: ["Fast cephalometric capture", "Orthodontic records"],
+    seoTitle: "One-Shot Cephalometric Imaging Lahore | RadioImages",
+    seoDescription:
+      "One-shot cephalometric imaging in DHA Lahore for fast, clear orthodontic records with digital delivery.",
+  }
 ];
 
 export const techFeatures = [

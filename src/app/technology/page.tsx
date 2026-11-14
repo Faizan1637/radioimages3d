@@ -31,8 +31,8 @@ export default function TechnologyPage() {
         eyebrow="Planmeca ProMax 3D Classic"
         title="3D CBCT, OPG and CEPH on one dental platform"
         description="Every feature explained in plain language — what it is, and why it matters for your diagnosis or treatment plan."
-        image={images.opgPatient}
-        imageAlt="Dental panoramic imaging environment"
+        image={images.reception}
+        imageAlt="RadioImages reception"
         priority
       >
         <ButtonLink href={buildWhatsAppUrl()} variant="whatsapp" external>
@@ -57,8 +57,8 @@ export default function TechnologyPage() {
               </div>
               <div className="relative overflow-hidden rounded-[1.25rem]">
                 <Image
-                  src={images.opgScreen}
-                  alt="OPG panoramic dental X-ray"
+                  src={images.equipmentMonitor}
+                  alt="Dental imaging equipment and diagnostic monitor"
                   width={600}
                   height={400}
                   className="h-40 w-full object-cover"
@@ -66,8 +66,8 @@ export default function TechnologyPage() {
               </div>
               <div className="relative overflow-hidden rounded-[1.25rem]">
                 <Image
-                  src={images.dentalXrayMonitor}
-                  alt="Dental X-ray CBCT review"
+                  src={images.xrayMonitor}
+                  alt="Dental X-ray displayed on a clinical monitor"
                   width={600}
                   height={400}
                   className="h-40 w-full object-cover"
@@ -86,8 +86,8 @@ export default function TechnologyPage() {
             <div className="mt-6 grid grid-cols-3 gap-2">
               {[
                 { label: "3D CBCT", src: images.promax },
-                { label: "OPG", src: images.opgPatient },
-                { label: "CEPH", src: images.cephOrtho },
+                { label: "OPG", src: images.opg },
+                { label: "CEPH", src: images.ceph },
               ].map((item) => (
                 <div key={item.label} className="overflow-hidden rounded-xl bg-paper-warm ring-1 ring-ink/5">
                   <div className="relative h-24">

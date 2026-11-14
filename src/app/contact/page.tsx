@@ -31,8 +31,8 @@ export default function ContactPage() {
         eyebrow="Contact & WhatsApp booking"
         title="Book by message. Find us without calling for directions."
         description="Every appointment request goes to our team on WhatsApp. We confirm your slot, share the address and help you arrive prepared."
-        image={images.hero}
-        imageAlt="Modern dental imaging clinic"
+        image={images.reception}
+        imageAlt="RadioImages 3D reception desk"
         priority
       >
         <div className="flex flex-wrap gap-3">

@@ -30,8 +30,8 @@ export default function ServicesPage() {
         eyebrow="Services"
         title="Dental imaging services for patients and referring clinics"
         description="Each service page covers what the scan is, when it is recommended, preparation, duration and how results are delivered."
-        image={images.opgPatient}
-        imageAlt="Dental OPG and CBCT imaging services"
+        image={images.reception}
+        imageAlt="RadioImages dental imaging center reception"
         priority
       />
 

@@ -38,8 +38,8 @@ export function FeaturedTech() {
               </div>
               <div className="relative overflow-hidden rounded-[1.25rem]">
                 <Image
-                  src={images.opgScreen}
-                  alt="OPG dental X-ray on monitor"
+                  src={images.romexisMonitor}
+                  alt="Planmeca Romexis 7 on a clinical monitor"
                   width={600}
                   height={400}
                   className="h-36 w-full object-cover sm:h-40"
@@ -47,8 +47,8 @@ export function FeaturedTech() {
               </div>
               <div className="relative overflow-hidden rounded-[1.25rem]">
                 <Image
-                  src={images.dentalXrayMonitor}
-                  alt="Dental CBCT X-ray review monitor"
+                  src={images.romexisImplant}
+                  alt="3D CBCT implant planning in Romexis"
                   width={600}
                   height={400}
                   className="h-36 w-full object-cover sm:h-40"

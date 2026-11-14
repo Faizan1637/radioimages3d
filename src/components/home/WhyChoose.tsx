@@ -4,12 +4,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { whyChoose } from "@/lib/content";
 import { images } from "@/lib/images";
 
-const accents = [
-  images.promax,
-  images.dentistCare,
-  images.opgScreen,
-  images.operatoryChair,
-];
+const accents = [images.promax, images.dentistCare, images.opgScreen, images.reception];
 
 export function WhyChoose() {
   return (

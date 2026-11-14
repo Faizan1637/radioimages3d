@@ -31,8 +31,8 @@ export default function PatientInfoPage() {
         eyebrow="Patient information"
         title="Know what to expect before your scan"
         description="Simple guidance for a smooth CBCT, OPG or CEPH visit — from preparation to how you take images home."
-        image={images.patientSmile}
-        imageAlt="Comfortable dental patient visit"
+        image={images.reception}
+        imageAlt="RadioImages reception"
       >
         <ButtonLink href={buildWhatsAppUrl()} variant="whatsapp" external>
           Ask a question on WhatsApp
@@ -42,7 +42,7 @@ export default function PatientInfoPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <Reveal>
           <div className="mb-8 grid gap-3 sm:grid-cols-3">
-            {[images.opgPatient, images.dentistCare, images.orthoBraces].map((src) => (
+            {[images.reception, images.dentistCare, images.operatory].map((src) => (
               <div key={src} className="relative h-44 overflow-hidden rounded-[1.25rem]">
                 <Image src={src} alt="" fill className="object-cover" sizes="33vw" />
               </div>
@@ -84,8 +84,8 @@ export default function PatientInfoPage() {
             <div className="grid lg:grid-cols-2">
               <div className="relative min-h-[220px]">
                 <Image
-                  src={images.operatoryChair}
-                  alt="Dental operatory for imaging visits"
+                  src={images.reception}
+                  alt="RadioImages reception desk"
                   fill
                   className="object-cover opacity-60"
                   sizes="50vw"

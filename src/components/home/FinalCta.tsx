@@ -12,7 +12,7 @@ export function FinalCta() {
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-ink text-white">
           <div className="absolute inset-0">
             <Image
-              src={images.dentistPatient}
+              src={images.reception}
               alt=""
               fill
               className="object-cover opacity-35"

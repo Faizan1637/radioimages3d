@@ -2,12 +2,14 @@ import Image from "next/image";
 import { images } from "@/lib/images";
 
 const strip = [
+  { src: images.reception, alt: "RadioImages reception" },
   { src: images.promax, alt: "Planmeca ProMax 3D Classic" },
-  { src: images.opgPatient, alt: "OPG panoramic dental scan" },
-  { src: images.opgScreen, alt: "Dental OPG X-ray on screen" },
-  { src: images.dentistXrayReview, alt: "Dentist reviewing dental X-rays" },
-  { src: images.orthoBraces, alt: "Orthodontic CEPH imaging support" },
-  { src: images.dentalImplantModel, alt: "Dental implant planning model" },
+  { src: images.opg, alt: "OPG panoramic radiograph" },
+  { src: images.ceph, alt: "Cephalometric radiograph" },
+  { src: images.romexisImplant, alt: "Romexis implant planning" },
+  { src: images.surgicalGuide, alt: "Computer guided surgical guide" },
+  { src: images.dentistCare, alt: "Dentist with a patient" },
+  { src: images.operatory, alt: "Dental imaging operatory" },
 ];
 
 export function ImageStrip() {

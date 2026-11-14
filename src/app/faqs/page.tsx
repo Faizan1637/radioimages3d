@@ -28,8 +28,8 @@ export default function FaqsPage() {
         eyebrow="FAQs"
         title="Answers for patients and referring clinics"
         description="Clear information on booking, safety, scan types and how results are delivered."
-        image={images.dentistsTabletXray}
-        imageAlt="Dentists reviewing dental X-ray imaging"
+        image={images.dentistsTablet}
+        imageAlt="Clinicians reviewing a dental X-ray"
       />
 
       <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
