@@ -55,22 +55,22 @@ export default function TechnologyPage() {
                   quality={80}
                 />
               </div>
-              <div className="relative overflow-hidden rounded-[1.25rem]">
+              <div className="relative overflow-hidden rounded-[1.25rem] bg-black">
                 <Image
-                  src={images.equipmentMonitor}
-                  alt="Dental imaging equipment and diagnostic monitor"
-                  width={600}
-                  height={400}
-                  className="h-40 w-full object-cover"
+                  src={images.cbctFace}
+                  alt="3D CBCT volume with facial overlay and implant planning"
+                  width={1024}
+                  height={729}
+                  className="h-40 w-full object-contain"
                 />
               </div>
-              <div className="relative overflow-hidden rounded-[1.25rem]">
+              <div className="relative overflow-hidden rounded-[1.25rem] bg-black">
                 <Image
-                  src={images.xrayMonitor}
-                  alt="Dental X-ray displayed on a clinical monitor"
-                  width={600}
-                  height={400}
-                  className="h-40 w-full object-cover"
+                  src={images.cbctViews}
+                  alt="3D CBCT cross-sections and rendered jaws"
+                  width={1024}
+                  height={709}
+                  className="h-40 w-full object-contain"
                 />
               </div>
             </div>
@@ -83,9 +83,11 @@ export default function TechnologyPage() {
               Advanced CBCT volumes, panoramic OPG imaging, cephalometric CEPH studies, 3D facial
               photography and model scanning — viewed and shared through Planmeca Romexis software.
             </p>
-            <div className="mt-6 grid grid-cols-3 gap-2">
+            <div className="mt-6 grid grid-cols-3 gap-2 sm:grid-cols-5">
               {[
                 { label: "3D CBCT", src: images.promax },
+                { label: "Implant plan", src: images.cbctFace },
+                { label: "CBCT views", src: images.cbctViews },
                 { label: "OPG", src: images.opg },
                 { label: "CEPH", src: images.ceph },
               ].map((item) => (
@@ -95,7 +97,13 @@ export default function TechnologyPage() {
                       src={item.src}
                       alt={item.label}
                       fill
-                      className={item.src === images.promax ? "object-contain p-1 bg-white" : "object-cover"}
+                      className={
+                        item.src === images.promax
+                          ? "object-contain bg-white p-1"
+                          : item.src === images.cbctFace || item.src === images.cbctViews
+                            ? "object-contain bg-black"
+                            : "object-cover"
+                      }
                       sizes="120px"
                     />
                   </div>

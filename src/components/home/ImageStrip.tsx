@@ -4,6 +4,8 @@ import { images } from "@/lib/images";
 const strip = [
   { src: images.reception, alt: "RadioImages reception" },
   { src: images.promax, alt: "Planmeca ProMax 3D Classic" },
+  { src: images.cbctFace, alt: "3D CBCT implant planning with facial overlay" },
+  { src: images.cbctViews, alt: "3D CBCT cross-sections and rendered jaws" },
   { src: images.opg, alt: "OPG panoramic radiograph" },
   { src: images.ceph, alt: "Cephalometric radiograph" },
   { src: images.romexisImplant, alt: "Romexis implant planning" },
@@ -37,7 +39,13 @@ export function ImageStrip() {
                 fill
                 loading="lazy"
                 quality={70}
-                className={item.src === images.promax ? "object-contain p-3" : "object-cover"}
+                className={
+                  item.src === images.promax
+                    ? "object-contain p-3"
+                    : item.src === images.cbctFace || item.src === images.cbctViews
+                      ? "bg-black object-contain"
+                      : "object-cover"
+                }
                 sizes="320px"
               />
             </div>

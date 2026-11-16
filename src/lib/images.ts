@@ -4,6 +4,8 @@ export const PROMAX_SIZE = { width: 1000, height: 1000 } as const;
 /** Clinic, scan, and software imagery — no generic dentist-exam or dental-unit stock */
 export const images = {
   promax: "/images/dental/promax-classic.jpg",
+  cbctFace: "/images/clinic/cbct-implant-face.jpg",
+  cbctViews: "/images/clinic/cbct-views.jpg",
   reception: "/images/clinic/reception.jpg",
   ceph: "/images/clinic/ceph-lateral.jpg",
   opg: "/images/clinic/opg-panoramic.jpg",
@@ -43,6 +45,16 @@ export const galleryImages = [
     src: images.promax,
     title: "Planmeca ProMax 3D Classic",
     alt: "Planmeca ProMax 3D Classic CBCT imaging unit",
+  },
+  {
+    src: images.cbctFace,
+    title: "3D implant planning",
+    alt: "3D CBCT volume with facial overlay, implant and nerve-canal planning",
+  },
+  {
+    src: images.cbctViews,
+    title: "3D CBCT views",
+    alt: "3D CBCT cross-sections and rendered jaws of the full dentition",
   },
   {
     src: images.opg,

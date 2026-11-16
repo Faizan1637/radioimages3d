@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, Navigation, ShieldCheck, Sparkles } from "lucide-react";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { images, PROMAX_SIZE } from "@/lib/images";
+import { images } from "@/lib/images";
 import { buildWhatsAppUrl, siteConfig } from "@/lib/site";
 
 export function Hero() {
@@ -117,46 +117,67 @@ export function Hero() {
           className="relative"
         >
           <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-brand/35 via-transparent to-indigo/45 blur-2xl" />
-          <div className="relative grid gap-3 sm:grid-cols-2">
-            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15 shadow-2xl sm:row-span-2">
-              <Image
-                src={images.promax}
-                alt="Planmeca ProMax 3D Classic CBCT unit"
-                width={PROMAX_SIZE.width}
-                height={PROMAX_SIZE.height}
-                className="h-full min-h-[280px] w-full bg-white object-contain p-4 sm:min-h-[420px]"
-                sizes="(max-width: 768px) 100vw, 420px"
-                quality={80}
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/70 to-transparent p-4">
-                <p className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.18em] text-brand-hot">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  3D CBCT
-                </p>
-                <p className="mt-1 font-display text-lg font-semibold">Planmeca ProMax 3D Classic</p>
+          <div className="relative grid gap-3">
+            <div className="grid gap-3 lg:grid-cols-2">
+              <div className="relative min-h-[280px] overflow-hidden rounded-[1.5rem] border border-white/15 bg-white shadow-2xl lg:row-span-2 lg:min-h-full">
+                <Image
+                  src={images.promax}
+                  alt="Planmeca ProMax 3D Classic CBCT unit"
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                  quality={80}
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/70 to-transparent p-4">
+                  <p className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.18em] text-brand-hot">
+                    <Sparkles className="h-3.5 w-3.5" />
+                    3D CBCT
+                  </p>
+                  <p className="mt-1 font-display text-lg font-semibold">Planmeca ProMax 3D Classic</p>
+                </div>
+              </div>
+              <div className="relative aspect-[1024/729] overflow-hidden rounded-[1.5rem] border border-white/15 bg-black">
+                <Image
+                  src={images.cbctFace}
+                  alt="3D CBCT volume with facial overlay and implant planning"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                  quality={75}
+                />
+              </div>
+              <div className="relative aspect-[1024/709] overflow-hidden rounded-[1.5rem] border border-white/15 bg-black">
+                <Image
+                  src={images.cbctViews}
+                  alt="3D CBCT cross-sections and rendered jaws"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                  quality={75}
+                />
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15">
-              <Image
-                src={images.opg}
-                alt="Panoramic OPG dental radiograph"
-                width={700}
-                height={500}
-                className="h-40 w-full bg-black object-contain sm:h-48"
-                loading="lazy"
-                quality={70}
-              />
-            </div>
-            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15">
-              <Image
-                src={images.ceph}
-                alt="Lateral cephalometric radiograph"
-                width={700}
-                height={500}
-                className="h-40 w-full bg-black object-contain sm:h-48"
-                loading="lazy"
-                quality={70}
-              />
+            <div className="grid gap-3 sm:grid-cols-[1.45fr_0.85fr]">
+              <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15 bg-black">
+                <Image
+                  src={images.opg}
+                  alt="Panoramic OPG dental radiograph of the full mouth"
+                  width={1400}
+                  height={700}
+                  className="h-44 w-full object-contain sm:h-52"
+                  quality={75}
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15 bg-black">
+                <Image
+                  src={images.ceph}
+                  alt="Lateral cephalometric radiograph"
+                  width={700}
+                  height={500}
+                  className="h-44 w-full object-contain sm:h-52"
+                  quality={70}
+                />
+              </div>
             </div>
           </div>
         </motion.div>

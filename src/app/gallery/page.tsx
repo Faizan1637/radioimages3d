@@ -39,11 +39,13 @@ export default function GalleryPage() {
                   className={`relative overflow-hidden ${
                     image.src === images.promax
                       ? "aspect-square bg-white"
-                      : index % 3 === 0
-                        ? "aspect-[4/5] bg-mist"
-                        : index % 3 === 1
-                          ? "aspect-square bg-mist"
-                          : "aspect-[4/3] bg-mist"
+                      : image.src === images.cbctFace || image.src === images.cbctViews
+                        ? "aspect-[4/3] bg-black"
+                        : index % 3 === 0
+                          ? "aspect-[4/5] bg-mist"
+                          : index % 3 === 1
+                            ? "aspect-square bg-mist"
+                            : "aspect-[4/3] bg-mist"
                   }`}
                 >
                   <Image
@@ -53,7 +55,11 @@ export default function GalleryPage() {
                     loading="lazy"
                     quality={70}
                     className={`transition duration-700 group-hover:scale-105 ${
-                      image.src === images.promax ? "object-contain p-6" : "object-cover"
+                      image.src === images.promax
+                        ? "object-contain p-6"
+                        : image.src === images.cbctFace || image.src === images.cbctViews
+                          ? "object-contain"
+                          : "object-cover"
                     }`}
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
