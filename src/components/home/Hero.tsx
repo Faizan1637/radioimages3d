@@ -30,7 +30,7 @@ export function Hero() {
         <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-indigo/40 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-24 pt-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:px-8 lg:pb-28 lg:pt-28">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 pb-16 pt-24 sm:px-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-12 lg:px-8 lg:pb-16 lg:pt-28">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -117,64 +117,64 @@ export function Hero() {
           className="relative"
         >
           <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-brand/35 via-transparent to-indigo/45 blur-2xl" />
-          <div className="relative grid gap-3">
-            <div className="grid gap-3 lg:grid-cols-2">
-              <div className="relative min-h-[280px] overflow-hidden rounded-[1.5rem] border border-white/15 bg-white shadow-2xl lg:row-span-2 lg:min-h-full">
+          <div className="relative grid gap-2.5">
+            <div className="grid grid-cols-2 gap-2.5">
+              <div className="relative row-span-2 min-h-[220px] overflow-hidden rounded-[1.35rem] border border-white/15 bg-white shadow-2xl sm:min-h-[300px]">
                 <Image
                   src={images.promax}
                   alt="Planmeca ProMax 3D Classic CBCT unit"
                   fill
-                  className="object-contain p-4"
-                  sizes="(max-width: 1024px) 100vw, 420px"
+                  className="object-contain p-3"
+                  sizes="(max-width: 1024px) 50vw, 280px"
                   quality={80}
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/70 to-transparent p-4">
-                  <p className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.18em] text-brand-hot">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/80 to-transparent p-3">
+                  <p className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.16em] text-brand-hot">
                     <Sparkles className="h-3.5 w-3.5" />
                     3D CBCT
                   </p>
-                  <p className="mt-1 font-display text-lg font-semibold">Planmeca ProMax 3D Classic</p>
+                  <p className="mt-1 font-display text-sm font-semibold sm:text-base">Planmeca ProMax 3D Classic</p>
                 </div>
               </div>
-              <div className="relative aspect-[1024/729] overflow-hidden rounded-[1.5rem] border border-white/15 bg-black">
+              <div className="relative h-[106px] overflow-hidden rounded-[1.35rem] border border-white/15 bg-black sm:h-[146px]">
                 <Image
                   src={images.cbctFace}
                   alt="3D CBCT volume with facial overlay and implant planning"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 420px"
+                  sizes="(max-width: 1024px) 50vw, 280px"
                   quality={75}
                 />
               </div>
-              <div className="relative aspect-[1024/709] overflow-hidden rounded-[1.5rem] border border-white/15 bg-black">
+              <div className="relative h-[106px] overflow-hidden rounded-[1.35rem] border border-white/15 bg-black sm:h-[146px]">
                 <Image
                   src={images.cbctViews}
                   alt="3D CBCT cross-sections and rendered jaws"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 420px"
+                  sizes="(max-width: 1024px) 50vw, 280px"
                   quality={75}
                 />
               </div>
             </div>
-            <div className="grid gap-3 sm:grid-cols-[1.45fr_0.85fr]">
-              <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15 bg-black">
+            <div className="grid grid-cols-[1.4fr_0.9fr] gap-2.5">
+              <div className="relative h-28 overflow-hidden rounded-[1.35rem] border border-white/15 bg-black sm:h-32">
                 <Image
                   src={images.opg}
                   alt="Panoramic OPG dental radiograph of the full mouth"
-                  width={1400}
-                  height={700}
-                  className="h-44 w-full object-contain sm:h-52"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 60vw, 320px"
                   quality={75}
                 />
               </div>
-              <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15 bg-black">
+              <div className="relative h-28 overflow-hidden rounded-[1.35rem] border border-white/15 bg-black sm:h-32">
                 <Image
                   src={images.ceph}
                   alt="Lateral cephalometric radiograph"
-                  width={700}
-                  height={500}
-                  className="h-44 w-full object-contain sm:h-52"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 40vw, 200px"
                   quality={70}
                 />
               </div>
