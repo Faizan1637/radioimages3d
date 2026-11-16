@@ -31,7 +31,7 @@ export function FinalCta() {
                 Book your CBCT, OPG or CEPH scan
               </h2>
               <p className="mt-4 max-w-2xl text-white/75">
-                Message us on WhatsApp, confirm your slot, visit {siteConfig.address.line1}, and
+                Message us on WhatsApp, confirm your slot, visit {siteConfig.address.full}, and
                 leave with images on USB or printed card for your dentist.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">

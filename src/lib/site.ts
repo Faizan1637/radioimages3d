@@ -1,3 +1,7 @@
+const fullAddress =
+  "Radioimages 3D, K, 73-6, Sector K Dha Phase 1, Lahore, 54000, Pakistan";
+const mapQuery = encodeURIComponent(fullAddress);
+
 export const siteConfig = {
   name: "RadioImages",
   legalName: "RadioImages 3D Dental Imaging Center",
@@ -6,10 +10,13 @@ export const siteConfig = {
     "Advanced dental imaging in DHA Lahore — 3D CBCT, OPG, cephalometric imaging and computer guided surgical solutions on the Planmeca ProMax 3D Classic.",
   url: "https://radioimages.com",
   address: {
-    line1: "73/6 K Block, Phase 1",
-    line2: "Ghazi Road, DHA Lahore",
-    full: "73/6 K Block, Phase 1, Ghazi Road, DHA Lahore",
+    line1: "K, 73-6, Sector K",
+    line2: "DHA Phase 1, Lahore, 54000",
+    full: fullAddress,
+    street: "K, 73-6, Sector K DHA Phase 1",
     city: "Lahore",
+    region: "Punjab",
+    postalCode: "54000",
     country: "Pakistan",
   },
   phones: [
@@ -30,12 +37,10 @@ export const siteConfig = {
     closeHour: 22,
   },
   maps: {
-    embedUrl:
-      "https://www.google.com/maps?q=73/6+K+Block,+Phase+1,+Ghazi+Road,+DHA+Lahore&output=embed",
-    directionsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=73%2F6%20K%20Block%2C%20Phase%201%2C%20Ghazi%20Road%2C%20DHA%20Lahore",
-    searchUrl:
-      "https://www.google.com/maps/search/?api=1&query=73%2F6%20K%20Block%2C%20Phase%201%2C%20Ghazi%20Road%2C%20DHA%20Lahore",
+    query: fullAddress,
+    embedUrl: `https://www.google.com/maps?q=${mapQuery}&output=embed`,
+    directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`,
+    searchUrl: `https://www.google.com/maps/search/?api=1&query=${mapQuery}`,
   },
   delivery: ["USB", "Printed card / film", "DVD", "Email / Cloud"],
 } as const;

@@ -13,7 +13,7 @@ export function MapSection() {
           <SectionHeading
             eyebrow="Find us easily"
             title="Arrive without extra phone calls for directions"
-            description="Exact address on Ghazi Road, DHA Phase 1. One tap opens Google Maps navigation on your phone."
+            description="K, 73-6, Sector K, DHA Phase 1, Lahore 54000. One tap opens Google Maps navigation on your phone."
           />
           <div className="mt-8 space-y-4 rounded-[1.5rem] bg-white p-6 ring-1 ring-ink/5">
             <div className="flex gap-3">

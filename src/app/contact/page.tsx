@@ -13,7 +13,7 @@ import { buildWhatsAppUrl, siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Location & Contact | DHA Lahore",
   description:
-    "Find RadioImages at 73/6 K Block, Phase 1, Ghazi Road, DHA Lahore. Book on WhatsApp, get directions, call 0325-9888999.",
+    "Find RadioImages at K, 73-6, Sector K, DHA Phase 1, Lahore 54000, Pakistan. Book on WhatsApp, get directions, call 0325-9888999.",
   path: "/contact",
   keywords: ["RadioImages address", "dental imaging DHA directions", "book CBCT WhatsApp Lahore"],
 });
