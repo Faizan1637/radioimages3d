@@ -383,7 +383,7 @@ export const whyChoose = [
   },
   {
     title: "Easy DHA location",
-    body: "K, 73-6, Sector K, DHA Phase 1, Lahore 54000 — open 10 AM to 10 PM, Sunday off. One-tap WhatsApp booking.",
+    body: "73-6, Sector K, DHA Phase 1, Lahore 54000 — open 10 AM to 10 PM, Sunday off. One-tap WhatsApp booking.",
   },
 ];
 
@@ -444,7 +444,7 @@ export const faqs = [
   {
     question: "Where are you located?",
     answer:
-      "RadioImages is at Radioimages 3D, K, 73-6, Sector K DHA Phase 1, Lahore, 54000, Pakistan. Use Get Directions on this site for turn-by-turn navigation to the building.",
+      "RadioImages is at Radioimages 3D, 73-6, Sector K Dha Phase 1, Lahore, 54000, Pakistan. Use Get Directions on this site for turn-by-turn navigation to the building.",
   },
   {
     question: "What are your opening hours?",

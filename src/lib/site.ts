@@ -1,6 +1,8 @@
-const fullAddress =
+const displayAddress =
+  "Radioimages 3D, 73-6, Sector K Dha Phase 1, Lahore, 54000, Pakistan";
+const mapAddress =
   "Radioimages 3D, K, 73-6, Sector K Dha Phase 1, Lahore, 54000, Pakistan";
-const mapQuery = encodeURIComponent(fullAddress);
+const mapQuery = encodeURIComponent(mapAddress);
 
 export const siteConfig = {
   name: "RadioImages",
@@ -10,10 +12,10 @@ export const siteConfig = {
     "Advanced dental imaging in DHA Lahore — 3D CBCT, OPG, cephalometric imaging and computer guided surgical solutions on the Planmeca ProMax 3D Classic.",
   url: "https://radioimages.com",
   address: {
-    line1: "K, 73-6, Sector K",
+    line1: "73-6, Sector K",
     line2: "DHA Phase 1, Lahore, 54000",
-    full: fullAddress,
-    street: "K, 73-6, Sector K DHA Phase 1",
+    full: displayAddress,
+    street: "73-6, Sector K Dha Phase 1",
     city: "Lahore",
     region: "Punjab",
     postalCode: "54000",
@@ -37,7 +39,7 @@ export const siteConfig = {
     closeHour: 22,
   },
   maps: {
-    query: fullAddress,
+    query: mapAddress,
     embedUrl: `https://www.google.com/maps?q=${mapQuery}&output=embed`,
     directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`,
     searchUrl: `https://www.google.com/maps/search/?api=1&query=${mapQuery}`,
